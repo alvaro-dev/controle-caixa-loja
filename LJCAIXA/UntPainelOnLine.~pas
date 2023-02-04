@@ -1,0 +1,134 @@
+unit UntPainelOnLine;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, DB, ADODB, DBTables, MXTABLES, MXDB,
+  TeeProcs, TeEngine, Chart, MXGRAPH, Mxstore, Series, DbChart, Grids,
+  DBGrids;
+
+type
+  TFrmPainelOnLine = class(TForm)
+    Panel1: TPanel;
+    ADOQuery1: TADOQuery;
+    ADOConnection1: TADOConnection;
+    DSCx1: TDataSource;
+    ADOQuery1FCID: TAutoIncField;
+    ADOQuery1FCCXFK: TWordField;
+    ADOQuery1FCDT: TDateField;
+    ADOQuery1FCVLDIN: TFloatField;
+    ADOQuery1FCVLCHEQ: TFloatField;
+    ADOQuery1FCVLCC: TFloatField;
+    ADOQuery1FCVLCD: TFloatField;
+    ADOQuery1FCTROCO: TFloatField;
+    ADOQuery1FCVLOUTROS: TFloatField;
+    ADOQuery1FCVLTOTREC: TFloatField;
+    ADOQuery1FCVLTOTPAG: TFloatField;
+    ADOQuery1FCSLDINI: TFloatField;
+    ADOQuery1FCSLDFIN: TFloatField;
+    ADOQuery1FCSLDATUAL: TFloatField;
+    ADOQuery1FCSEQAB: TWideStringField;
+    GroupBox2: TGroupBox;
+    DBChart1: TDBChart;
+    Series1: TBarSeries;
+    Series2: TBarSeries;
+    DBChart2: TDBChart;
+    ADOQuery2: TADOQuery;
+    DataSource2: TDataSource;
+    ADOQuery3: TADOQuery;
+    DataSource3: TDataSource;
+    BarSeries1: TLineSeries;
+    BarSeries2: TLineSeries;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    ADOTabCx2: TADOTable;
+    ADOTabMovCx2: TADOTable;
+    ADOTabCx2CXID: TWordField;
+    ADOTabCx2CXDESC: TWideStringField;
+    ADOTabCx2CXBLQ: TWideStringField;
+    ADOTabCx2CXSTATUS: TWideStringField;
+    ADOTabCx2CXDTABERT: TDateField;
+    ADOTabCx2CXHRABERT: TTimeField;
+    ADOTabCx2CXDTFEC: TDateField;
+    ADOTabCx2CXHRFEC: TTimeField;
+    ADOTabCx2CXSEQAB: TWideStringField;
+    ADOTabMovCx2MVBID: TAutoIncField;
+    ADOTabMovCx2MVBCXFK: TWordField;
+    ADOTabMovCx2MVBDTMOV: TDateField;
+    ADOTabMovCx2MVBHRMOV: TTimeField;
+    ADOTabMovCx2MVBDESC: TWideStringField;
+    ADOTabMovCx2MVBVALOR: TFloatField;
+    ADOTabMovCx2MVBTPRP: TWideStringField;
+    ADOTabMovCx2MVBFORMPAG: TWideStringField;
+    ADOTabMovCx2MVBOBS: TMemoField;
+    ADOTabMovCx2MVBVLDIN: TFloatField;
+    ADOTabMovCx2MVBVLCHEQ: TFloatField;
+    ADOTabMovCx2MVBVLCC: TFloatField;
+    ADOTabMovCx2MVBVLCD: TFloatField;
+    ADOTabMovCx2MVBVLTROCO: TFloatField;
+    ADOTabMovCx2MVBVLOUTROS: TFloatField;
+    ADOTabMovCx2MVBUSU: TWideStringField;
+    ADOTabMovCx2MVBFLGREC: TWideStringField;
+    ADOTabMovCx2MVBSEQAB: TWideStringField;
+    DSCx2: TDataSource;
+    DSMvCx2: TDataSource;
+    DSAcDiar2: TDataSource;
+    ADOTabAcDiar2: TADOTable;
+    ADOTabAcDiar2FCID: TAutoIncField;
+    ADOTabAcDiar2FCCXFK: TWordField;
+    ADOTabAcDiar2FCDT: TDateField;
+    ADOTabAcDiar2FCVLDIN: TFloatField;
+    ADOTabAcDiar2FCVLCHEQ: TFloatField;
+    ADOTabAcDiar2FCVLCC: TFloatField;
+    ADOTabAcDiar2FCVLCD: TFloatField;
+    ADOTabAcDiar2FCTROCO: TFloatField;
+    ADOTabAcDiar2FCVLOUTROS: TFloatField;
+    ADOTabAcDiar2FCVLTOTREC: TFloatField;
+    ADOTabAcDiar2FCVLTOTPAG: TFloatField;
+    ADOTabAcDiar2FCSLDINI: TFloatField;
+    ADOTabAcDiar2FCSLDFIN: TFloatField;
+    ADOTabAcDiar2FCSLDATUAL: TFloatField;
+    ADOTabAcDiar2FCSEQAB: TWideStringField;
+    Panel3: TPanel;
+    ADOTabAcDiar3: TADOTable;
+    DSAcDiar3: TDataSource;
+    ADOTabAcDiar3FCID: TAutoIncField;
+    ADOTabAcDiar3FCCXFK: TWordField;
+    ADOTabAcDiar3FCDT: TDateField;
+    ADOTabAcDiar3FCVLDIN: TFloatField;
+    ADOTabAcDiar3FCVLCHEQ: TFloatField;
+    ADOTabAcDiar3FCVLCC: TFloatField;
+    ADOTabAcDiar3FCVLCD: TFloatField;
+    ADOTabAcDiar3FCTROCO: TFloatField;
+    ADOTabAcDiar3FCVLOUTROS: TFloatField;
+    ADOTabAcDiar3FCVLTOTREC: TFloatField;
+    ADOTabAcDiar3FCVLTOTPAG: TFloatField;
+    ADOTabAcDiar3FCSLDINI: TFloatField;
+    ADOTabAcDiar3FCSLDFIN: TFloatField;
+    ADOTabAcDiar3FCSLDATUAL: TFloatField;
+    ADOTabAcDiar3FCSEQAB: TWideStringField;
+    DBChart3: TDBChart;
+    Series3: TPieSeries;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPainelOnLine: TFrmPainelOnLine;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmPainelOnLine.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  FrmPainelOnLine.Release;
+  FrmPainelOnLine:=Nil;
+end;
+
+end.

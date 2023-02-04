@@ -1,0 +1,130 @@
+object FrmPrinc: TFrmPrinc
+  Left = 433
+  Top = 148
+  Width = 561
+  Height = 268
+  Caption = 'SisLoja - Caixa Vers'#227'o 1.5'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIForm
+  Menu = MMPrinc
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 196
+    Width = 545
+    Height = 34
+    Cursor = crHandPoint
+    Panels = <
+      item
+        Text = ' >> LJCX MySql ODBC 5.1'
+        Width = 150
+      end
+      item
+        Width = 150
+      end
+      item
+        Width = 50
+      end>
+    OnDblClick = StatusBar1DblClick
+  end
+  object MMPrinc: TMainMenu
+    Left = 48
+    Top = 16
+    object Sistema1: TMenuItem
+      Caption = 'Sistema'
+      Visible = False
+      object MudarSenha1: TMenuItem
+        Caption = 'Mudar Senha'
+        OnClick = MudarSenha1Click
+      end
+      object Login1: TMenuItem
+        Caption = 'Login/Logoff'
+        OnClick = Login1Click
+      end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object Sair1: TMenuItem
+        Caption = 'Sair'
+        OnClick = Sair1Click
+      end
+    end
+    object Configurador1: TMenuItem
+      Caption = 'Configurador'
+      Visible = False
+      object Usurios1: TMenuItem
+        Caption = 'Usu'#225'rios'
+        OnClick = Usurios1Click
+      end
+      object Menus1: TMenuItem
+        Caption = 'Menus'
+        OnClick = Menus1Click
+      end
+      object PainelOnLine1: TMenuItem
+        Caption = 'Painel OnLine'
+        OnClick = PainelOnLine1Click
+      end
+    end
+    object Vendas1: TMenuItem
+      Caption = 'Vendas'
+      Visible = False
+      object Caixas1: TMenuItem
+        Caption = 'Caixas'
+        OnClick = Caixas1Click
+      end
+      object VendasBalco1: TMenuItem
+        Caption = 'Vendas Balc'#227'o'
+        OnClick = VendasBalco1Click
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Consultar1: TMenuItem
+        Caption = 'Consultar'
+        object Movimentos1: TMenuItem
+          Caption = 'Movimentos Caixa'
+          OnClick = Movimentos1Click
+        end
+        object AcumuladosDirios1: TMenuItem
+          Caption = 'Acumulados Di'#225'rios'
+        end
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object AbrirFecharCaixa1: TMenuItem
+        Caption = 'Abrir/Fechar Caixa'
+        OnClick = AbrirFecharCaixa1Click
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object ReprocessarSaldo1: TMenuItem
+        Caption = 'Reprocessar Saldo Di'#225'rio'
+      end
+    end
+    object Relatrios1: TMenuItem
+      Caption = 'Relat'#243'rios'
+      Visible = False
+      object MovimentaodoCaixa1: TMenuItem
+        Caption = 'Movimenta'#231#227'o do Caixa'
+        OnClick = MovimentaodoCaixa1Click
+      end
+    end
+  end
+  object XPManifest1: TXPManifest
+    Left = 104
+    Top = 16
+  end
+end
